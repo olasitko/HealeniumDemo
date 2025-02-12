@@ -8,15 +8,17 @@ This project leverages Healenium, a self-healing library for Selenium tests, to 
 
 Before running the tests, you need to start the container with the necessary Healenium components. To do this, navigate to the `infra` directory and run Docker Compose:
 
-`cd infra`
-`docker-compose up -d`
+- `cd infra`
+- `docker-compose -f docker-compose-web.yaml up -d` (in case when Healenium-Web should be used)
+- `docker-compose up -d` (in case when Healenium-Proxy solution should be used)
 
 This will launch the required containers, such as:
 
-*   `postgres-db`: PostgreSQL database for storing pattern selectors, healing information, and reports.
-*   `hlm-proxy`: Proxy redirecting client requests to the Selenium server.
-*   `hlm-backend`: CRUD service.
-*   `selector-imitator`: Converter of healed locators to a convenient format.
+- `postgres-db` (PostgreSQL database to store reference selector / healing / report / DOM)
+- `hlm-proxy` (Proxy client betwe Selenium server and application)
+- `hlm-backend` (CRUD service)
+- `selector imitator` (Convert healed locator to convenient format)
+- `selenoid / selenium-grid` (Selenium server)
 
 Ensure that all containers are in the "Up" and "Running" state.
 
