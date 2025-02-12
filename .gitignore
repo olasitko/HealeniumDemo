@@ -12,6 +12,10 @@ target/
 *.iml
 *.ipr
 
+### Healenium ###
+logs/
+screenshots/
+
 ### Eclipse ###
 .apt_generated
 .classpath
